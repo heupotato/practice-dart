@@ -8,6 +8,14 @@ List<int>FibonacciGen(int number){
 }
 void main(List<String> args) {
     print("How many Fibonnaci numbers you want to generate?"); 
-    int number = int.parse(stdin.readLineSync()!); 
-    print(FibonacciGen(number));
+    while (true)
+    try{
+      int number = int.parse(stdin.readLineSync()!); 
+      if (number < 1) throw("Invalid Input. Please try again"); 
+      print(FibonacciGen(number));
+      return; 
+    }
+    catch (err){
+      print(err.toString()); 
+    }
 }
