@@ -9,6 +9,5 @@ List<int>FibonacciGen(int number){
 void main(List<String> args) {
     print("How many Fibonnaci numbers you want to generate?"); 
     int number = int.parse(stdin.readLineSync()!); 
-    print(FibonacciGen(number)); 
-
+    print(FibonacciGen(number));
 }
