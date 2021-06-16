@@ -45,8 +45,8 @@ void printResult(int result, String clueWord){
 	else print("You lost! The clue word is ${clueWord.toUpperCase()}"); 
 }
 
-void main(List<String> args) {
-	print("Starting the game"); 
+void playGame(){
+    print("Starting the game"); 
 	print("Picking a random word"); 
 	String clueWord = pickRandomWord("sowpods.txt").toLowerCase(); 
 	prepareGame(clueWord); 
@@ -80,4 +80,13 @@ void main(List<String> args) {
 		print(""); 
 	}
 	printResult(result, clueWord); 
+}
+
+void main(List<String> args) {
+    String option = ""; 
+    while (option != "quit"){
+        playGame();
+        print("Type `quit` to exit game or type any key to continue"); 
+    }
+	print("Thanks for playing game"); 
 }
