@@ -45,6 +45,30 @@ void printResult(int result, String clueWord){
 	else print("You lost! The clue word is ${clueWord.toUpperCase()}"); 
 }
 
+void displayBody(int turns){
+    String blank = "                               ||\n"; 
+    String head = "  ---                          ||" + "\n" +
+                  " |X X|                         ||" + "\n" +
+                  " | o |                         ||" + "\n" +
+                  "  ---                          ||" + "\n";
+    String body = "   |                           ||\n"; 
+    String leftHand = " --|"; 
+    String rightHand = "--"; 
+    String leftLeg = "/";
+    String rightLeg = "\\"; 
+    print("   ============================="); 
+    print("   |                           ||");
+    print("   |                           ||");
+    stdout.write("${turns<6 ? head : blank *4}"); 
+    stdout.write("${turns<5? body : blank}"); 
+    print("${turns<4 ? leftHand : "    "}${turns<3? rightHand : "  "}                         ||");
+    print("   ${turns<3? rightHand : " "}                           ||");
+    print("  ${turns<2 ? leftLeg : " "} ${turns<1 ? rightLeg : " "}                          ||");
+    print(" ${turns<2 ? leftLeg : " "}   ${turns<1 ? rightLeg : " "}                         ||");
+    stdout.write(blank*2);
+    print("   ============================="); 
+}
+
 void playGame(){
     print("Starting the game"); 
 	print("Picking a random word"); 
@@ -56,6 +80,7 @@ void playGame(){
 	int result = 0; 
 	while (result == 0){
 		print("You have $turns incorrect guess(es) left"); 
+        displayBody(turns); 
 		print("Let's guess a letter"); 
 		String guess = guessLetter(); 
 		guessedLetters.add(guess); 
@@ -84,7 +109,7 @@ void playGame(){
 
 void main(List<String> args) {
     String option = ""; 
-    while (option != "quit"){
+    while (option != "quit"){ 
         playGame();
         print("Type `quit` to exit game or type any key to continue"); 
     }
