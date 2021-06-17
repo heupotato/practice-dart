@@ -42,7 +42,11 @@ void printFoundLetters(){
 
 void printResult(int result, String clueWord){
 	if (result == 1) print("Congratulations! You found the clue word ${clueWord.toUpperCase()}"); 
-	else print("You lost! The clue word is ${clueWord.toUpperCase()}"); 
+	else {
+        print("You ran out of turn"); 
+        displayBody(0); 
+        print("You lost! The clue word is ${clueWord.toUpperCase()}"); 
+    }
 }
 
 void displayBody(int turns){
